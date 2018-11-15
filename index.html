@@ -36,7 +36,9 @@
                     this.handleRemoveFriend = this.handleRemoveFriend.bind(this)
                     this.updateInput = this.updateInput.bind(this)
                     this.handleAddFriend = this.handleAddFriend.bind(this)
+                    this.handleClearFriends = this.handleClearFriends.bind(this)
                 }
+
                 handleAddFriend(){
                     this.setState((currentState) => {
                         return{
@@ -51,6 +53,12 @@
                         return {
                             friends: currentState.friends.filter((friend) => friend !== name)
                         }
+                    })
+                }
+
+                handleClearFriends(){
+                    this.setState({
+                        friends:[]
                     })
                 }
                 
@@ -72,6 +80,7 @@
                                 onChange={this.updateInput}
                             />
                             <button onClick={this.handleAddFriend}>Submit</button>
+                            <button onClick={this.handleClearFriends}>Clear All</button>
                             
                             <FriendsList 
                                 list={this.state.friends} 
